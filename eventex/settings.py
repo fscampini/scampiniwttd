@@ -34,7 +34,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'eventex.core',
+    'eventex.core',
+    'eventex.subscriptions',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,9 +57,9 @@ WSGI_APPLICATION = 'eventex.wsgi.application'
 
 DATABASES = {
     'default': config(
-	'DATABASE_URL',
-	default='sqlite:///' + BASE_DIR.child('db.sqlite3'),
-	cast=db_url),
+        'DATABASE_URL',
+        default='sqlite:///' + BASE_DIR.child('db.sqlite3'),
+        cast=db_url),
 }
 
 # Internationalization
