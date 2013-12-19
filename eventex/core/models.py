@@ -1,6 +1,7 @@
 # coding: utf-8
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from eventex.core.managers import KindContactManager
 
 # Create your models here.
 class Speaker(models.Model):
@@ -22,6 +23,11 @@ class Contact(models.Model):
     speaker = models.ForeignKey('Speaker', verbose_name=_('Palestrante'))
     kind = models.CharField(_('tipo'), max_length=1, choices=KINDS)
     value = models.CharField(_('valor'), max_length=255)
+
+    objects = models.Manager()
+    emails = KindContactManager('E')
+    phones = KindContactManager('P')
+    faxes = KindContactManager('F')
 
     def __unicode__(self):
         return self.value
